@@ -3,8 +3,14 @@
 /**
  * Class CsvDataService
  */
-class CsvDataService extends AbstractFileDataService
+class CsvDataService implements DataServiceInterface
 {
+    private $csvReader;
+
+    public function __construct(CsvReader $csvReader)
+    {
+        $this->csvReader = $csvReader;
+    }
 
     public function connect()
     {

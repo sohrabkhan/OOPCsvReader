@@ -19,6 +19,12 @@ class Merchant
 
     //TODO other properties of a merchant
 
+    public function __construct($id, $name = NULL)
+    {
+        $this->id = $id;
+        $this->name = $name;
+    }
+
 
     public function getTransactions()
     {

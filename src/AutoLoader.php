@@ -14,7 +14,7 @@ class AutoLoader
     /**
      * Register the php files in a directory when given the directory name
      */
-    public static function registerDirectory($directory) 
+    public static function registerDirectory($directory)
     {
 
         $directoryIterator = new DirectoryIterator($directory); //Get an instance of DirectoryIterator for the directory that is being registered
@@ -34,7 +34,7 @@ class AutoLoader
         }
     }
 
-    private static function registerClass($className, $fileName) 
+    private static function registerClass($className, $fileName)
     {
         AutoLoader::$classNames[$className] = $fileName;
     }
@@ -42,13 +42,13 @@ class AutoLoader
     /**
      * Checks if the class name exists; in which case the class is included otherwise our custom 404 error is thrown
      */
-    public static function loadClass($className) 
+    public static function loadClass($className)
     {
         if (isset(AutoLoader::$classNames[$className])) {
             require_once(AutoLoader::$classNames[$className]);
         }
         else {
-            throw new NotFoundException("The class you specified does not exist");
+            throw new NotFoundException("The class $className you specified does not exist");
         }
     }
 }

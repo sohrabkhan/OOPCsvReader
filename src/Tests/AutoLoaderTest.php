@@ -1,7 +1,5 @@
 <?php
 
-use Currency;
-
 /**
  * Class AutoLoaderTest
  * @author Sohrab Khan

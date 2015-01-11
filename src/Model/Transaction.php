@@ -15,7 +15,7 @@ class Transaction
     private $merchant;
     /**
      * The timestamp of the transaction
-     * @var \DateTime
+     * @var string
      */
     private $date;
     /**
@@ -46,7 +46,7 @@ class Transaction
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getDate()
     {
@@ -54,7 +54,7 @@ class Transaction
     }
 
     /**
-     * @param \DateTime $date
+     * @param $date string
      */
     public function setDate($date)
     {
