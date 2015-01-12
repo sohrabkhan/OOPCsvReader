@@ -2,9 +2,6 @@
 
 /**
  * Represent a single transaction
- *
- * Class Transaction
- * @package Model
  */
 class Transaction
 {
@@ -72,7 +69,7 @@ class Transaction
     /**
      * @param Currency $currency
      */
-    public function setCurrency($currency)
+    public function setCurrency(Currency $currency)
     {
         $this->currency = $currency;
     }
