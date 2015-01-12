@@ -23,15 +23,6 @@ class FeatureContext extends BehatContext
 
     private $output;
 
-    /** @Given /^I am in a directory "([^"]*)"$/ */
-    public function iAmInADirectory($dir)
-    {
-        if (!file_exists($dir)) {
-            mkdir($dir);
-        }
-        chdir($dir);
-    }
-
     /** @Given /^I have a file named "([^"]*)"$/ */
     public function iHaveAFileNamed($file)
     {
@@ -48,7 +39,7 @@ class FeatureContext extends BehatContext
     /** @Then /^I should get:$/ */
     public function iShouldGet(PyStringNode $string)
     {
-        if (preg_match('/' . $string . '/', $this->output)) {
+        if (preg_match_all('/' . (string)$string . '/', $this->output)) {
             throw new Exception(
                 "Actual output is:\n" . $this->output
             );
