@@ -12,11 +12,19 @@ class ReportController {
      */
     public function generateAction($fileName, $merchantId = 0)
     {
+        if(!file_exists($fileName)) {
+            throw new NotFoundException("The file $fileName does not exist. Kindly supply the name of a file that exist");
+        }
         $csvReader = new CsvReader($fileName);
-        var_dump($csvReader);
+        // Read the file
+        $csvReader->read();
         $csvDataService = new CsvDataService($csvReader);
         $transactions = $csvDataService->getTransactions($merchantId);
-
-        require "src/View/report_generate.html.php";
+        if(count($transactions) > 0) {
+            require "src/View/report_generate.html.php";
+        }
+        else {
+            echo "No transactions found";
+        }
     }
 }

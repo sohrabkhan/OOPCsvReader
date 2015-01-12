@@ -51,7 +51,7 @@ class CsvReader
             $currency = $currencyService->getCurrencyWithSymbol($currencyCode);
 
             $transaction->setCurrency($currency);
-            $transaction->setAmount($this->extractNumbers($amount));
+            $transaction->setAmount($this->extractNumbers($amount)[0]);
             $this->transactions[] = $transaction;
         }
 

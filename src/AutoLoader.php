@@ -48,7 +48,7 @@ class AutoLoader
             require_once(AutoLoader::$classNames[$className]);
         }
         else {
-            throw new NotFoundException("The class $className you specified does not exist");
+            //throw new NotFoundException("The class $className you specified does not exist");
         }
     }
 }

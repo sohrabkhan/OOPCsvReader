@@ -7,7 +7,8 @@
 include_once('src/AutoLoader.php');
 
 // Register all php files in Exception, Model and Controller directories
-AutoLoader::registerDirectory('src');
-//AutoLoader::registerDirectory('src/Model');
-//AutoLoader::registerDirectory('src/Controller');
-//AutoLoader::registerDirectory('src/Service');
+//AutoLoader::registerDirectory('src');
+AutoLoader::registerDirectory('src/Exception');
+AutoLoader::registerDirectory('src/Controller');
+AutoLoader::registerDirectory('src/Model');
+AutoLoader::registerDirectory('src/Service');

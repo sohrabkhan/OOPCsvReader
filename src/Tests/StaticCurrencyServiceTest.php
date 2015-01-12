@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sohrab Khan
- * Date: 11/01/2015
- * Time: 13:39
- */
 
 /**
  * Tests for the Static Currency Service

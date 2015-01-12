@@ -49,5 +49,7 @@ class CsvDataService implements DataServiceInterface
                 $results[] = $transaction;
             }
         }
+
+        return $results;
     }
 }
