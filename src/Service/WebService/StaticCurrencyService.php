@@ -59,6 +59,19 @@ class StaticCurrencyService implements CurrencyServiceInterface
     }
 
     /**
+     * @param $symbol
+     * @return mixed
+     */
+    public function getCurrencyWithSymbol($symbol)
+    {
+        foreach($this->currencyList as $key => $object) {
+            if($object->getSymbol() === $symbol) {
+                return $object;
+            }
+        }
+    }
+
+    /**
      * Return all the currencies
      * @return array
      */

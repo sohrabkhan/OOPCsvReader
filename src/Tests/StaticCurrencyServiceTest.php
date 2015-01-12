@@ -28,12 +28,17 @@ class StaticCurrencyServiceTest extends PHPUnit_Framework_TestCase
     /**
      * Test the static currency service's getcurrency method
      */
-    public function testGetCurrency()
+    public function testGetCurrencyWithSymbol()
     {
         $staticService = new StaticCurrencyService();
         $gbp = $staticService->getCurrency("GBP");
 
         $this->assertInstanceOf(Currency::class, $gbp);
         $this->assertTrue($gbp->getSymbol() == "£");
+
+        $eur = $staticService->getCurrencyWithSymbol("€");
+
+        $this->assertInstanceOf(Currency::class, $eur);
+        $this->assertTrue($eur->getSymbol() == "€");
     }
 }

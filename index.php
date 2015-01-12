@@ -5,13 +5,13 @@
  */
 include_once('bootstrap.php');
 
-$currency = new Currency();
-$currency->setCode("GBP");
-$currency->setRate(1.5);
-var_dump($currency);
+const CSV_FILE = "data.csv";
 
-echo "<br><br><br>";
+if(count($argv) == 1) { //Not arguments supplied
+    throw new \InvalidArgumentException();
+}
 
-$csvReader = new CsvReader("data.csv");
-$csvReader->read();
-//var_dump($csvReader->getTransactions());
+if(count($argv) == 2) {
+    $report = new ReportController();
+    $report->generateAction($argv[1]);
+}

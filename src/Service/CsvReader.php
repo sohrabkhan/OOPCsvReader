@@ -36,27 +36,38 @@ class CsvReader
 
         $file = fopen($this->filename, "r");
 
-        // Skip the first row as it's the name of the columns
-        //var_dump(fgetcsv($file));
+        $count = 0;
+        while (($fields = fgetcsv($file, 0, ";")) !== FALSE) {
 
+            //Skip the first row as it's the name of the columns
+            if(++$count == 1) continue;
 
-        while(! feof($file))
-        {
-            $row = fgetcsv($file, );
-            var_dump($row);
-            echo "<br>";
             $transaction = new Transaction();
-            $transaction->setMerchant(new Merchant($row[0]));
-            $transaction->setDate($row[1]);
+            $transaction->setMerchant(new Merchant($fields[0]));
+            $transaction->setDate($fields[1]);
 
-            $amount = $row[2];
-            $currency = $currencyService->getCurrency(substr($amount, 0, 1));
+            $amount = $fields[2];
+            $currencyCode = $this->extractCurrencySymbol($amount);
+            $currency = $currencyService->getCurrencyWithSymbol($currencyCode);
+
             $transaction->setCurrency($currency);
-            $transaction->setAmount(substr($amount, 1));
+            $transaction->setAmount($this->extractNumbers($amount));
             $this->transactions[] = $transaction;
         }
 
         fclose($file);
+    }
+
+    private function extractCurrencySymbol($string)
+    {
+        preg_match_all('/[£\$€]+/', $string, $match);
+        return $match[0][0];
+    }
+
+    private function extractNumbers($string)
+    {
+        preg_match_all('!\d+(?:\.\d+)?!', $string, $match);
+        return $match[0];
     }
 
     /**
