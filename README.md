@@ -1,4 +1,4 @@
-Affiliate Window Candidate Task (Senior Developer)
+Sample Object Oriented CSV Reader
 ===============================
 ## Installation ##
 There are no framework or package requirements. Just extract and everything should work out of the box.
