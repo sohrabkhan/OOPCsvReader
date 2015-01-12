@@ -1,5 +1,0 @@
-{
-    "require": {
-        "behat/behat": "~3.0"
-    }
-}
