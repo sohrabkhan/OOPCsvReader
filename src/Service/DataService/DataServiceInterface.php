@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The Database Service Interface gives a blueprint of what a general database service should do. This interface should
+ * The Database Service Interface gives a blueprint of what a general data service should do. This interface should
  * be implemented by every service that is supposed to retrieve data. This interface should be implemented by a
  * DbmsDataService if data is to be retrieved from mysql / oracle / mssql etc. It can be implemented by a YmlDataService
  * if data is to be retrieved from a Yml File similarly by CsvDataService if data is to be retrieved from a Csv file;
